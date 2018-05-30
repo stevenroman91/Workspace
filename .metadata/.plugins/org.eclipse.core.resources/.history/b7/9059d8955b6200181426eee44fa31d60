@@ -1,0 +1,11 @@
+package service;
+
+import java.util.Collection;
+
+import domaine.Personne;
+
+public interface Iutilisateurs {
+	
+	public Collection<Personne> findAll();
+
+}

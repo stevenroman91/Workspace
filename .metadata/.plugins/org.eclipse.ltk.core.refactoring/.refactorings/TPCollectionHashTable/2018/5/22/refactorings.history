@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;presentation.lanceur&apos; to &apos;Lanceur&apos;&#x0D;&#x0A;- Original project: &apos;TPCollectionHashTable&apos;&#x0D;&#x0A;- Original element: &apos;presentation.lanceur&apos;&#x0D;&#x0A;- Renamed element: &apos;presentation.Lanceur&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;lanceur&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;presentation{lanceur.java[lanceur" matchStrategy="1" name="Lanceur" qualified="false" references="true" similarDeclarations="false" stamp="1527585299829" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,13 @@
+package presentation;
+
+public class Lanceur {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//afficher le menu
+		
+		System.out.println("----------------- MENU-----------------");
+		
+	}
+
+}

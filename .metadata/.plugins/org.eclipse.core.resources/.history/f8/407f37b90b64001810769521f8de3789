@@ -1,0 +1,9 @@
+package presentation;
+
+import domaine.Compte;
+
+public interface ICompte extends IGeneriqueService<Compte
+>{
+	
+
+}

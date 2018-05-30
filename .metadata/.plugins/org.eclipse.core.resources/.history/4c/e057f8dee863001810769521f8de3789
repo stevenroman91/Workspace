@@ -1,0 +1,70 @@
+package domaine;
+
+/**
+ * Classe de gestion des comptes
+ * @author Adminl
+ * @version 1.0 
+ */
+public class Compte {
+
+	// Attributs
+	/**
+	 * numéro de compte
+	 */
+	protected int idCompte;
+	/**
+	 * solde du compte
+	 */
+	protected double solde;
+
+	// Getters & Setters
+
+	/**
+	 * 
+	 * @return retourne le numéro de compte
+	 */
+	public int getIdCompte() {
+		return idCompte;
+	}
+
+	public void setIdCompte(int idCompte) {
+		this.idCompte = idCompte;
+	}
+
+	/**
+	 * 
+	 * @return le solde du compte
+	 */
+	public double getSolde() {
+		return solde;
+	}
+
+	public void setSolde(double solde) {
+		this.solde = solde;
+	}
+
+	// To String
+	@Override
+	public String toString() {
+		return "Compte [idCompte=" + idCompte + ", solde=" + solde + "]";
+	}
+	
+	/**
+	 * méthode de retrait dans un compte
+	 * @param montant à retirer
+	 */
+	public void retirer(double mt) {
+		solde -= mt;
+	}
+
+	
+	/**
+	 * méthode de versement dans un compte
+	 * @param montant à verser
+	 */
+	public void verser(double mt) {
+		solde += mt;
+	}
+	
+	
+}

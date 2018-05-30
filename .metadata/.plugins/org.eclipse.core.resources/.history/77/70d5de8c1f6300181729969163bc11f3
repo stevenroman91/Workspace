@@ -1,0 +1,50 @@
+package domaine;
+
+public class Personne {
+	private int idPersonne;
+	private String nom, preom;
+	
+	public Personne() {
+		super();
+	}
+
+	public Personne(int idPersonne, String nom, String preom) {
+		super();
+		this.idPersonne = idPersonne;
+		this.nom = nom;
+		this.preom = preom;
+	}
+
+	public int getIdPersonne() {
+		return idPersonne;
+	}
+
+	public void setIdPersonne(int idPersonne) {
+		this.idPersonne = idPersonne;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPreom() {
+		return preom;
+	}
+
+	public void setPreom(String preom) {
+		this.preom = preom;
+	}
+
+	@Override
+	public String toString() {
+		return "Personne [idPersonne=" + idPersonne + ", nom=" + nom + ", preom=" + preom + "]";
+	}
+	
+	
+	
+
+}

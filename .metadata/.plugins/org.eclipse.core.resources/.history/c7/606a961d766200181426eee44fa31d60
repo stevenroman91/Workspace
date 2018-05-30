@@ -1,0 +1,37 @@
+package domaine;
+
+public class CompteSimple extends Compte {
+	
+	//Attribus
+	
+	private int decouvert;
+
+	// Getters & Setters
+	
+	public int getDecouvert() {
+		return decouvert;
+	}
+
+	public void setDecouvert(int decouvert) {
+		this.decouvert = decouvert;
+	}
+	
+	// Constructeur
+	
+	public CompteSimple() {
+		super();
+	}
+	
+	public CompteSimple(int decouvert) {
+		super();
+		this.decouvert = decouvert;
+	}
+
+	
+	
+	
+	
+	
+	
+
+}

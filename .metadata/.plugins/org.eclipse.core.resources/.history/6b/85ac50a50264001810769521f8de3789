@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"domaine","l":"Compte"},{"p":"presentation","l":"Lanceur"},{"p":"domaine","l":"MontantNegatifException"},{"p":"domaine","l":"SoldeInsuffisantException"}]

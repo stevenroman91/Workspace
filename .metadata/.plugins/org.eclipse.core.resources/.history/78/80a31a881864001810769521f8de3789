@@ -1,0 +1,16 @@
+package presentation;
+
+public class Lanceur {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//afficher le menu
+		
+		System.out.println("----------------- MENU-----------------");
+		System.out.println("Tappez 1 pour gerer les comptes:");
+		System.out.println("Tappez 2 pour gerer les personnes:");
+		System.out.println("Tappez 0 pour sortir:");
+		
+	}
+
+}

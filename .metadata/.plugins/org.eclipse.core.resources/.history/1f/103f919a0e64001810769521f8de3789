@@ -1,0 +1,15 @@
+package presentation;
+
+import domaine.Personne;
+
+
+public class Lanceur {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Personne p = new Personne(1, "Roman", "Steven", 26);
+
+
+	}
+
+}

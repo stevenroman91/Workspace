@@ -1,0 +1,17 @@
+package presentation;
+
+import domaine.Personne;
+import service.ServiceGeneriqueImpl;
+
+public class Lanceur {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Personne p = new Personne(1,"Steven","Roman", 20);
+		IPersonne ip = new ServiceGeneriqueImpl<Personne>() {
+			
+		};
+
+	}
+
+}

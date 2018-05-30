@@ -1,0 +1,10 @@
+package domaine;
+
+public class CompteSimple extends Compte {
+	
+	//Attribus
+	
+	int idCompte = 45;
+	
+
+}

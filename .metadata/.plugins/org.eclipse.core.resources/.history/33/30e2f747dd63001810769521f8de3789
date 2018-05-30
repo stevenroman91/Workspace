@@ -1,0 +1,23 @@
+package presentation;
+
+import java.util.Scanner;
+
+public class Lanceur {
+	
+	public static int calcul(int a, int b) {
+		return a/b;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner clavier = new Scanner(System.in);
+		System.out.println("Saisir a:"); int a = clavier.nextInt();
+		System.out.println("Saisir b:"); int b = clavier.nextInt();
+		
+		int resultat=calcul(a,b);
+		
+		System.out.println(a+"/"+b+"=" + resultat);
+		clavier.close();
+	}
+
+}

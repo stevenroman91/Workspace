@@ -1,0 +1,35 @@
+package domaine;
+
+public class Compte {
+	
+	//Attribus
+	
+	private int idCompte, solde;
+	
+	// Getters & setters
+	
+	public int getIdCompte() {
+		return idCompte;
+	}
+
+	public void setIdCompte(int idCompte) {
+		this.idCompte = idCompte;
+	}
+
+	public int getSolde() {
+		return solde;
+	}
+
+	public void setSolde(int solde) {
+		this.solde = solde;
+	}
+	
+	// Méthode to string
+	
+	@Override
+	public String toString() {
+		return "Compte [idCompte=" + idCompte + ", solde=" + solde + "]";
+	}
+	
+
+}

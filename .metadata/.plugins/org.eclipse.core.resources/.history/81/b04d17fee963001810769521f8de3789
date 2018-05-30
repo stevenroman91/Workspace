@@ -1,0 +1,32 @@
+package presentation;
+
+import java.io.InputStream;
+import java.util.Scanner;
+
+import domaine.Compte;
+import domaine.MontantNegatifException;
+
+public class Lanceur {
+
+
+	public static void main(String[] args) {
+		
+		Compte cp = new Compte();
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("MONTANT A VERSER:");
+		double mt = scan.nextDouble();
+		try {
+			cp.verser(mt);
+		} catch (MontantNegatifException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		System.out.println("COMPTE APRES VERSEMENT:");
+		System.out.println(cp);
+		scan.close();
+		
+
+	}
+
+}

@@ -1,0 +1,11 @@
+package domaine;
+
+public class MontantNegatifException extends Exception{
+
+	public MontantNegatifException(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}

@@ -1,0 +1,16 @@
+package presentation;
+
+import service.Iservice;
+import service.ServiceImpl;
+
+public class Lanceur {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Iservice service = new ServiceImpl();
+		Map<Integer, Personne> resultats = new Hashtable<Integer, Personne>();
+		System.out.println("AFFICHAGE MAP AVANT AJOUT");
+		System.out.println("AFFICHAGE MAP APRES AJOUT");
+	}
+
+}

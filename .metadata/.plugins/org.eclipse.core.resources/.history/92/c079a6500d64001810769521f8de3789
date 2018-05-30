@@ -1,0 +1,7 @@
+package service;
+
+import domaine.Personne;
+
+public interface IPersonne extends IGeneriqueService<Personne>{
+
+}

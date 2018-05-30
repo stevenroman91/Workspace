@@ -1,0 +1,28 @@
+package domaine;
+
+public class Compte {
+	
+	protected int idCompte , solde;
+
+	public int getIdCompte() {
+		return idCompte;
+	}
+
+	public void setIdCompte(int idCompte) {
+		this.idCompte = idCompte;
+	}
+
+	public int getSolde() {
+		return solde;
+	}
+
+	public void setSolde(int solde) {
+		this.solde = solde;
+	}
+
+	@Override
+	public String toString() {
+		return "Compte [idCompte=" + idCompte + ", solde=" + solde + "]";
+	}
+
+}

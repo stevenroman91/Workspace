@@ -1,0 +1,28 @@
+package domaine;
+
+public class ComptePayant extends Compte {
+	
+	private double taux;
+
+	public double getTaux() {
+		return taux;
+	}
+
+	public void setTaux(double taux) {
+		this.taux = taux;
+	}
+
+	public ComptePayant(int idCompte, int solde, double taux) {
+		super(idCompte, solde);
+		this.taux = taux;
+	}
+
+	@Override
+	public String toString() {
+		return "ComptePayant [taux=" + taux + ", idCompte=" + idCompte + ", solde=" + solde + "]";
+	}
+
+
+	
+
+}

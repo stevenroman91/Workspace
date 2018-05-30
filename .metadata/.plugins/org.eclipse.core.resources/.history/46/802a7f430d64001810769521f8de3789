@@ -1,0 +1,8 @@
+package service;
+
+import domaine.Compte;
+import domaine.Login;
+
+public class LoginImpl extends ServiceGeneriqueImpl<Login> {
+
+}
