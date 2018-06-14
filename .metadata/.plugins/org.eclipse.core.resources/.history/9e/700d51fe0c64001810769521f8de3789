@@ -1,7 +1,0 @@
-package service;
-
-import domaine.Club;
-
-public class ClubImpl extends IGeneriqueService<Club> {
-
-}

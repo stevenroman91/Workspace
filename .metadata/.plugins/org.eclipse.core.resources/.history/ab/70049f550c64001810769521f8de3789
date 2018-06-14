@@ -1,7 +1,0 @@
-package presentation;
-
-import domaine.Login;
-
-public interface ILogin extends IGeneriqueService<Login> {
-
-}

@@ -1,4 +1,4 @@
-package model;
+package domaine;
 
 import java.util.ArrayList;
 import java.util.Collection;

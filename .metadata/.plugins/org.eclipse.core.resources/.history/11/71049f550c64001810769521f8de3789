@@ -1,7 +1,0 @@
-package presentation;
-
-import domaine.Club;
-
-public interface IClub extends IGeneriqueService<Club> {
-
-}

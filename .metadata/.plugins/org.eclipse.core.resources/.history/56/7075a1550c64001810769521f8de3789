@@ -1,7 +1,0 @@
-package presentation;
-
-import domaine.Personne;
-
-public interface IPersonne extends IGeneriqueService<Personne>{
-
-}

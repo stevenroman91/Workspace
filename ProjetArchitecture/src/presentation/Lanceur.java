@@ -11,7 +11,6 @@ public class Lanceur {
 		// TODO Auto-generated method stub
 		Iadmin admin = new ServiceImpl();
 		Iutilisateur utilisateur = new ServiceImpl();
-		Personne p = new Personne();
 		admin.findAll();
 		utilisateur.findAll();		
 		
