@@ -23,13 +23,27 @@ public class Client extends Personne {
 	private Collection<Placement> placements = new ArrayList<Placement>();
 	
 	//---------- Constructeur de la Classe Personne 
-
 	/**
 	 * 
-	 * @param prenom prenom du Client
-	 * @param nom nom du Client
-	 * @param telephone telephone du Client
-	 * @param adresse adresse du Client
+	 * @param prenom
+	 * @param nom
+	 * @param adresse
+	 * @param email
+	 */
+	public Client(String prenom, String nom, String email) {
+		super();
+		super.prenom = prenom;
+		super.nom = nom;
+		this.email = email;
+	}
+	
+	/**
+	 * 
+	 * @param prenom
+	 * @param nom
+	 * @param telephone
+	 * @param adresse
+	 * @param email
 	 */
 	public Client(String prenom, String nom,int telephone, Adresse adresse, String email) {
 		super();

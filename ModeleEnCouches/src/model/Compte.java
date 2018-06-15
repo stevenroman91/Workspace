@@ -13,6 +13,8 @@ public abstract class Compte {
 	
 	//---------- Attributs de la Classe Adresse 
 	
+	
+
 	protected int numeroDeCompte;
 	protected double solde=0.;
 	protected Client titulaireduCompte;
@@ -27,7 +29,19 @@ public abstract class Compte {
 	 */
 	
 	//---------- Getters & Setters
-
+	protected int idCompte;
+	/**
+	 * @return the idCompte
+	 */
+	public int getIdCompte() {
+		return idCompte;
+	}
+	/**
+	 * @param idCompte the idCompte to set
+	 */
+	public void setIdCompte(int idCompte) {
+		this.idCompte = idCompte;
+	}
 	public int getNumeroDeCompte() {
 		return numeroDeCompte;
 	}
