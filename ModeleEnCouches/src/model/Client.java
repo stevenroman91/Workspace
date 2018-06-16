@@ -17,7 +17,7 @@ public class Client extends Personne {
 	private int telephone;
 	private Adresse adresse;
 	private String email;
-	private boolean typeDeClient;
+	//private boolean typeDeClient;
 	private ConseillerClientele conseiller;
 	private Collection<Compte> comptes = new ArrayList<Compte>();
 	private Collection<Placement> placements = new ArrayList<Placement>();
@@ -113,21 +113,21 @@ public class Client extends Personne {
 
 
 
-	
-	/**
+	/*
+	*//**
 	 * @return the typeDeClient
-	 */
+	 *//*
 	public boolean isTypeDeClient() {
 		return typeDeClient;
 	}
 
-	/**
+	*//**
 	 * @param typeDeClient the typeDeClient to set
-	 */
+	 *//*
 	public void setTypeDeClient(boolean typeDeClient) {
 		this.typeDeClient = typeDeClient;
 	}
-
+*/
 	/**
 	 * @return the conseiller
 	 */
@@ -180,8 +180,8 @@ public class Client extends Personne {
 	 */
 	@Override
 	public String toString() {
-		return "Client [idClient=" + idClient + ", telephone=" + telephone + ", adresse=" + adresse + ", typeDeClient="
-				+ typeDeClient + ", conseiller=" + conseiller + ", comptes=" + comptes + ", placements=" + placements
+		return "Client [idClient=" + idClient + ", telephone=" + telephone + ", adresse=" + adresse +/* ", typeDeClient="
+				+ typeDeClient +*/ ", conseiller=" + conseiller + ", comptes=" + comptes + ", placements=" + placements
 				+ "]";
 	}
 	

@@ -12,7 +12,9 @@ import model.Adresse;
 import model.Client;
 import model.Compte;
 import model.CompteCourant;
+import model.CompteEpargne;
 import model.ConseillerClientele;
+import service.MontantNegatifException;
 
 public class DBClientDao extends DaoUtil implements ClientDao {
 
@@ -269,6 +271,7 @@ public class DBClientDao extends DaoUtil implements ClientDao {
 		Connection cn = null;
 		ResultSet rs = null;
 		PreparedStatement prepst = null;
+		PreparedStatement prepst1 = null;
 		List<Compte> list = new ArrayList<Compte>();
 
 		try {
@@ -276,7 +279,7 @@ public class DBClientDao extends DaoUtil implements ClientDao {
 			cn = SeConnecter();
 
 			// Etape 3: Creer une requete
-			String sql = "SELECT * FROM comptesCourants WHERE comptescourants.idClient = ?";
+			String sql = "SELECT * FROM comptesCourants WHERE comptesCourants.idClient = ?";
 			prepst = cn.prepareStatement(sql);
 			prepst.setInt(1, c.getIdClient());
 			// Etape 4
@@ -286,16 +289,32 @@ public class DBClientDao extends DaoUtil implements ClientDao {
 				int i = rs.getInt(1);
 				int numeroDeCompte = rs.getInt(2);
 				double solde = rs.getDouble(3);
-				String dateOuvertureCompte= rs.getString(4);
+				String dateOuvertureCompte = rs.getString(4);
 				double decouvert = rs.getDouble(5);
 				CompteCourant cl = new CompteCourant(numeroDeCompte, dateOuvertureCompte, decouvert);
 				cl.setIdCompte(i);
 				cl.setNumeroDeCompte(numeroDeCompte);
 				list.add(cl);
 			} // on aurait pu faire un while
-			
-			
-			
+
+			String sql1 = "SELECT * FROM comptesEpargnes WHERE comptesEpargnes.idClient = ?";
+			prepst1 = cn.prepareStatement(sql1);
+			prepst1.setInt(1, c.getIdClient());
+			rs = prepst1.executeQuery();
+			cn.commit();
+
+			while (rs.next()) {
+				int i = rs.getInt(1);
+				int numeroDeCompte = rs.getInt(2);
+				double solde = rs.getDouble(3);
+				String dateOuvertureCompte = rs.getString(4);
+				double taux = rs.getDouble(5);
+				CompteEpargne cl = new CompteEpargne(numeroDeCompte, dateOuvertureCompte, taux);
+				cl.setIdCompte(i);
+				cl.setNumeroDeCompte(numeroDeCompte);
+				list.add(cl);
+			}
+
 			return list;
 
 		} catch (SQLException | ClassNotFoundException e) {
@@ -315,6 +334,94 @@ public class DBClientDao extends DaoUtil implements ClientDao {
 		}
 
 		return null;
+	}
+
+	@Override
+	public void virementCC(Compte c1, Compte c2, double mt) throws MontantNegatifException {
+		// if(decouvert<0) throw new MontantNegatifException("Le découvert que vous avez
+		// rentré est négatif");
+
+		Connection cn = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		// PreparedStatement st1 = null;
+		try {
+			cn = SeConnecter();
+			// Etape 3: Creer une requete
+
+			// On commence par débiter le compte débiteur
+			// Avant de débiter le compte il faut qu'on teste quel type de compte s'est
+			if (c1.isTypeDeCompte() == false) {
+
+				String sql = "SELECT solde from comptesCourants WHERE comptesCourants.idClient = ?";
+				st = cn.prepareStatement(sql);
+				st.setDouble(1, c1.getTitulaireduCompte().getIdClient());
+				rs = st.executeQuery();
+				cn.commit();
+
+				double decouvert = 0.;
+
+				while (rs.next()) {
+					decouvert = rs.getDouble(1);
+				}
+
+				if (decouvert < 0)
+					throw new MontantNegatifException("Le découvert que vous avez rentré est négatif");
+				if (c1.getSolde() < -decouvert)
+					throw new MontantNegatifException(
+							"Vouz ne pouvez pas changer votre decouvert car votre solde est inferieur au decouvert que vous voulez rentrer");
+
+				String sql1 = "UPDATE comptesCourants SET solde = ? WHERE comptesCourants.idClient = ? ";
+				st = cn.prepareStatement(sql1);
+				st.setDouble(1, c1.getSolde() + mt);
+				st.setInt(2, c1.getTitulaireduCompte().getIdClient());
+				st.executeUpdate();
+				cn.commit();
+
+			}
+
+			if (c1.isTypeDeCompte() == true) {
+
+				String sql = "SELECT solde from comptesEpargnes WHERE comptesEpargnes.idClient = ?";
+				st = cn.prepareStatement(sql);
+				st.setDouble(1, c1.getTitulaireduCompte().getIdClient());
+				rs = st.executeQuery();
+				cn.commit();
+
+				double decouvert = 0.;
+
+				while (rs.next()) {
+					decouvert = rs.getDouble(1);
+				}
+
+				if (decouvert < 0)
+					throw new MontantNegatifException("Le découvert que vous avez rentré est négatif");
+				if (c1.getSolde() < -decouvert)
+					throw new MontantNegatifException(
+							"Vouz ne pouvez pas changer votre decouvert car votre solde est inferieur au decouvert que vous voulez rentrer");
+
+				String sql1 = "UPDATE comptesCourants SET solde = ? WHERE comptesCourants.idClient = ? ";
+				st = cn.prepareStatement(sql1);
+				st.setDouble(1, c1.getSolde() + mt);
+				st.setInt(2, c1.getTitulaireduCompte().getIdClient());
+				st.executeUpdate();
+				cn.commit();
+
+			}
+
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			try {
+				cn.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		} finally {
+			SeDeconnecter(cn, st, null);
+		}
+
 	}
 
 }
