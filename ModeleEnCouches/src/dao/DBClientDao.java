@@ -335,11 +335,28 @@ public class DBClientDao extends DaoUtil implements ClientDao {
 
 		return null;
 	}
+	
+	@Override
+	public List<Compte> FindAllComptes(ConseillerClientele cc) {
+		// TODO Auto-generated method stub
+		List<Client> clients = this.FindClients(cc);
+		List<Compte> comptes = new ArrayList<Compte>();
+		
+		for (Client client : clients) {
+			List<Compte> comptesclient = this.FindComptes(client);
+			for (Compte compte : comptesclient) {
+				comptes.add(compte);
+			}
+		}
+		
+		return comptes;
+	}
+
+	
 
 	@Override
 	public void virementCC(Compte c1, Compte c2, double mt) throws MontantNegatifException {
-		// if(decouvert<0) throw new MontantNegatifException("Le découvert que vous avez
-		// rentré est négatif");
+		if(mt<0) throw new MontantNegatifException("Le montant que vous avez rentré est négatif");
 
 		Connection cn = null;
 		PreparedStatement st = null;
@@ -365,15 +382,12 @@ public class DBClientDao extends DaoUtil implements ClientDao {
 					decouvert = rs.getDouble(1);
 				}
 
-				if (decouvert < 0)
-					throw new MontantNegatifException("Le découvert que vous avez rentré est négatif");
-				if (c1.getSolde() < -decouvert)
-					throw new MontantNegatifException(
-							"Vouz ne pouvez pas changer votre decouvert car votre solde est inferieur au decouvert que vous voulez rentrer");
+				if (c1.getSolde() - mt < -decouvert) throw new MontantNegatifException(
+							"Vouz ne pouvez pas effectuer ce virement car il n'y a pas assez de fonds sur le compte à debiter");
 
 				String sql1 = "UPDATE comptesCourants SET solde = ? WHERE comptesCourants.idClient = ? ";
 				st = cn.prepareStatement(sql1);
-				st.setDouble(1, c1.getSolde() + mt);
+				st.setDouble(1, c1.getSolde() - mt);
 				st.setInt(2, c1.getTitulaireduCompte().getIdClient());
 				st.executeUpdate();
 				cn.commit();
@@ -382,32 +396,45 @@ public class DBClientDao extends DaoUtil implements ClientDao {
 
 			if (c1.isTypeDeCompte() == true) {
 
-				String sql = "SELECT solde from comptesEpargnes WHERE comptesEpargnes.idClient = ?";
-				st = cn.prepareStatement(sql);
-				st.setDouble(1, c1.getTitulaireduCompte().getIdClient());
-				rs = st.executeQuery();
-				cn.commit();
-
-				double decouvert = 0.;
-
-				while (rs.next()) {
-					decouvert = rs.getDouble(1);
-				}
-
-				if (decouvert < 0)
-					throw new MontantNegatifException("Le découvert que vous avez rentré est négatif");
-				if (c1.getSolde() < -decouvert)
+				if (c1.getSolde() - mt < 0)
 					throw new MontantNegatifException(
 							"Vouz ne pouvez pas changer votre decouvert car votre solde est inferieur au decouvert que vous voulez rentrer");
 
-				String sql1 = "UPDATE comptesCourants SET solde = ? WHERE comptesCourants.idClient = ? ";
+				String sql1 = "UPDATE comptesEpargnes SET solde = ? WHERE comptesEpargnes.idClient = ? ";
 				st = cn.prepareStatement(sql1);
-				st.setDouble(1, c1.getSolde() + mt);
+				st.setDouble(1, c1.getSolde() - mt);
 				st.setInt(2, c1.getTitulaireduCompte().getIdClient());
 				st.executeUpdate();
 				cn.commit();
 
 			}
+			
+			
+			// Maintenant on crédite le compte recepteur
+			
+			if (c1.isTypeDeCompte() == false) {
+
+				String sql1 = "UPDATE comptesCourants SET solde = ? WHERE comptesCourants.idClient = ? ";
+				st = cn.prepareStatement(sql1);
+				st.setDouble(1, c2.getSolde() + mt);
+				st.setInt(2, c2.getTitulaireduCompte().getIdClient());
+				st.executeUpdate();
+				cn.commit();
+
+			}
+
+			if (c1.isTypeDeCompte() == true) {
+
+				String sql1 = "UPDATE comptesEpargnes SET solde = ? WHERE comptesEpargnes.idClient = ? ";
+				st = cn.prepareStatement(sql1);
+				st.setDouble(1, c2.getSolde() + mt);
+				st.setInt(2, c2.getTitulaireduCompte().getIdClient());
+				st.executeUpdate();
+				cn.commit();
+
+			}
+			
+			
 
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -424,4 +451,5 @@ public class DBClientDao extends DaoUtil implements ClientDao {
 
 	}
 
+	
 }
