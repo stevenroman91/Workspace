@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public abstract class DaoUtil {
 
-	private static final String url = "jdbc:mysql://localhost/banque";
+	private static final String url = "jdbc:mysql://localhost/proxibanquedb";
 	private static final String login = "root";
 	private static final String passwd = "";
 
