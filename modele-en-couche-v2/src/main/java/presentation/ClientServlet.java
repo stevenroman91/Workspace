@@ -19,7 +19,7 @@ import service.ClientServiceImpl;
 
 @WebServlet(
         name = "EmployeeServlet",
-        urlPatterns = {"/employee"}
+        urlPatterns = {"/client"}
 )
 public class ClientServlet extends HttpServlet {
 
