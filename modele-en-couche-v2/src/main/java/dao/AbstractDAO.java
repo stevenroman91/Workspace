@@ -41,7 +41,7 @@ public abstract class AbstractDAO {
 		// �tablir la connexion
 		Class.forName("com.mysql.jdbc.Driver");
 		
-		String url = "jdbc:mysql://localhost/proxibanquedb";
+		String url = "jdbc:mysql://localhost/coucheV2";
 		String username = "root";
 		String password = "";
 		
