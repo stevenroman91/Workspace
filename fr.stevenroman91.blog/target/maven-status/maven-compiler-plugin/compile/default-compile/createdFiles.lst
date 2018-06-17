@@ -1,0 +1,6 @@
+fr\stevenroman91\blog\domain\Article.class
+fr\stevenroman91\blog\web\BlogServlet.class
+fr\stevenroman91\blog\web\DeleteServlet.class
+fr\stevenroman91\blog\web\IndexServlet.class
+fr\stevenroman91\blog\service\ArticleService.class
+fr\stevenroman91\blog\web\ArticleServlet.class

@@ -1,0 +1,12 @@
+<web-app version="3.1">
+	<!-- Description d'une servlet avec association à la classe Java. -->
+	<servlet>
+		<servlet-name>PronoServlet</servlet-name>
+		<servlet-class>fr.stevenroman91.monpronostique.web.PronoServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>PronoServlet</servlet-name>
+		<url-pattern>/france-australie</url-pattern>
+	</servlet-mapping>
+</web-app>
