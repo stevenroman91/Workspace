@@ -18,7 +18,7 @@ import service.ClientService;
 import service.ClientServiceImpl;
 
 @WebServlet(
-        name = "EmployeeServlet",
+        name = "ClientServlet",
         urlPatterns = {"/client"}
 )
 public class ClientServlet extends HttpServlet {
@@ -49,7 +49,7 @@ public class ClientServlet extends HttpServlet {
         }
         req.setAttribute("client", client);
         req.setAttribute("action", "edit");
-        String nextJSP = "/views/new-employee.jsp";
+        String nextJSP = "/views/new-client.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(req, resp);
     }
@@ -61,6 +61,45 @@ public class ClientServlet extends HttpServlet {
         req.setAttribute("clientList", clientList);
         dispatcher.forward(req, resp);
     }   
+    
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        String action = req.getParameter("action");
+        switch (action) {
+            case "add":
+                addClientAction(req, resp);
+                break;
+           
+            case "remove":
+                removeClientById(req, resp);
+                break;            
+        }
+
+    }
+
+    private void addClientAction(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        int i = Integer.parseInt(req.getParameter("id"));
+        String nom = req.getParameter("nom");
+        Client client = new Client(i,nom);
+        List<Client> clientList = clientService.getAllClient();
+        req.setAttribute("id", i);
+        String message = "The new client has been successfully created.";
+        req.setAttribute("message", message);
+        forwardListClients(req, resp, clientList);
+    } 
+
+    private void removeClientById(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        int id = Integer.valueOf(req.getParameter("id"));
+        clientService.deleteClient(id);
+        String message = "The employee has been successfully removed.";
+        req.setAttribute("message", message);
+
+        List<Client> clientList = clientService.getAllClient();
+        forwardListClients(req, resp, clientList);
+    }
     
 
 }

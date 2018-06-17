@@ -3,4 +3,12 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
+	<servlet>
+		<servlet-name>ClientServlet</servlet-name>
+		<servlet-class>modelencouche.ClientServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ClientServlet</servlet-name>
+		<url-pattern>/client</url-pattern>
+	</servlet-mapping>
 </web-app>

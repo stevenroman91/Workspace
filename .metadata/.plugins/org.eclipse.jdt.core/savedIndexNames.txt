@@ -1,22 +1,6 @@
 INDEX VERSION 1.130+S:\Formation\StevenRoman\workspace\Workspace\.metadata\.plugins\org.eclipse.jdt.core
-2106449232.index
-547111264.index
 668338844.index
-3103115951.index
-356787744.index
-3973467982.index
-1656161913.index
-643149233.index
-2788911906.index
-155518211.index
-2359562048.index
-4156963274.index
 1867807428.index
+2359562048.index
 3767045696.index
-1095713860.index
-3308145300.index
-1229108821.index
-370955838.index
-942657536.index
-3954901186.index
-1027849416.index
+2106449232.index

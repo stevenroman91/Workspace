@@ -35,7 +35,7 @@
 			<div class="form-group col-xs-5">
 				<input type="number" name="clientName" id="clientName"
 					class="form-control" required="true"
-					placeholder="Type the Name or Last Name of the employee" />
+					placeholder="Type the id of the employee" />
 			</div>
 			<button type="submit" class="btn btn-info">
 				<span class="glyphicon glyphicon-search"></span> Search
@@ -57,12 +57,12 @@
 						</thead>
 						<c:forEach var="client" items="${clientList}">
 							<c:set var="classSucess" value="" />
-							<c:if test="${idClient == client.id}">
+							<c:if test="${id == client.id}">
 								<c:set var="classSucess" value="info" />
 							</c:if>
 							<tr class="${classSucess}">
-								<td>${employee.id}</td>
-								<td>${employee.name}</td>
+								<td>${client.id}</td>
+								<td>${client.nom}</td>
 							</tr>
 						</c:forEach>
 					</table>
