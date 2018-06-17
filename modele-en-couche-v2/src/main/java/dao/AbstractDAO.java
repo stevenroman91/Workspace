@@ -38,10 +38,10 @@ public abstract class AbstractDAO {
 //
 	protected Connection getConnectionDM() throws ClassNotFoundException, SQLException {
 		Connection cn;
-		// établir la connexion
+		// ï¿½tablir la connexion
 		Class.forName("com.mysql.jdbc.Driver");
 		
-		String url = "jdbc:mysql://localhost:3306/coucheV2";
+		String url = "jdbc:mysql://localhost/proxibanquedb";
 		String username = "root";
 		String password = "";
 		
