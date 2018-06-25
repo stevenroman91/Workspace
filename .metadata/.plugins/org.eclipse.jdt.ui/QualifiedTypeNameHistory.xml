@@ -3,4 +3,9 @@
 <fullyQualifiedTypeName name="service.ClientService"/>
 <fullyQualifiedTypeName name="service.ClientServiceImpl"/>
 <fullyQualifiedTypeName name="model.Client"/>
+<fullyQualifiedTypeName name="fr.gtm.tp.exo1.Exo1"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="org.slf4j.Logger"/>
+<fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
