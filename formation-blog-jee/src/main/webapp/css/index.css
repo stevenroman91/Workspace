@@ -1,0 +1,26 @@
+body {
+	margin: 0;
+}
+
+h1 {
+	font-size: 2.6em;
+	color: darkblue;
+	text-align: center;
+}
+
+div.main {
+	width: 80%;
+    margin: auto;
+}
+
+div.article {
+	padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+div.article h2 {
+	font-weight: bold;
+	text-decoration: underline;
+}

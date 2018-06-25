@@ -1,0 +1,58 @@
+<!-- Fichier de description d'application Web. -->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<!-- Description d'une servlet avec association à la classe Java. -->
+	<servlet>
+		<servlet-name>BlogServlet</servlet-name>
+		<servlet-class>fr.gtm.blog.web.BlogServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>IndexServlet</servlet-name>
+		<servlet-class>fr.gtm.blog.web.IndexServlet</servlet-class>
+		<init-param>
+			<param-name>idCount</param-name>
+			<param-value>3</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>ArticleServlet</servlet-name>
+		<servlet-class>fr.gtm.blog.web.ArticleServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteServlet</servlet-name>
+		<servlet-class>fr.gtm.blog.web.DeleteServlet</servlet-class>
+	</servlet>
+
+	<!-- Lien entre une Servlet Java et un ou plusieurs modèle d'URL qui permettra 
+		d'activer ses méthodes doGet/doPost/doPut/doDelete... -->
+	<servlet-mapping>
+		<servlet-name>BlogServlet</servlet-name>
+		<url-pattern>/helloworld</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>IndexServlet</servlet-name>
+		<url-pattern>/articles</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ArticleServlet</servlet-name>
+		<url-pattern>/manage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteServlet</servlet-name>
+		<url-pattern>/delete</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+		<filter-name>Filtre Authentification</filter-name>
+		<filter-class>fr.gtm.blog.web.AuthFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Filtre Authentification</filter-name>
+		<url-pattern>/helloworld</url-pattern>
+		<url-pattern>/articles/*</url-pattern>
+		<url-pattern>/manage</url-pattern>
+	</filter-mapping>
+</web-app>
