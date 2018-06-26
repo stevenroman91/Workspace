@@ -2,13 +2,15 @@ package service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import dao.ClientDAO;
-import dao.SQLClientDAO;
 import model.Client;
 
 public class ClientServiceImpl implements ClientService {
 
-	private ClientDAO dao = new SQLClientDAO();
+	@Autowired
+	private ClientDAO dao;
 
 	/**
 	 * Méthode permettant d'ajouter un client en BDD
@@ -21,13 +23,19 @@ public class ClientServiceImpl implements ClientService {
 		} else if (c.getName() == null) {
 			System.out.println("Merci de saisir un nom");
 		} else {
-			dao.save(c);
+			if (c.getId() != null) {
+				dao.update(c);
+			} else {
+				dao.create(c);
+			}
 		}
 	}
 
 	@Override
 	public Client getValidatedClient(int id) {
-		return dao.findById(id);
+		Client c = new Client();
+		c.setId(id);
+		return dao.read(c);
 	}
 
 	@Override
@@ -37,6 +45,8 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public void deleteClient(int id) {
-		dao.delete(id);
+		Client c = new Client();
+		c.setId(id);
+		dao.delete(c);
 	}
 }

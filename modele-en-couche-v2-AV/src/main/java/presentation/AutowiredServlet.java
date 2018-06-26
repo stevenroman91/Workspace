@@ -1,4 +1,4 @@
-package fr.gtm.blog.web;
+package presentation;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
