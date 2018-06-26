@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Déclaration du conteneur de beans léger: ApplicationContext de Spring -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:component-scan base-package="service, presentation"/>
+	
+	<!-- Déclaration d'un bean (scope=singleton) permettant d'injecter une instance 
+	unique du service qui manipule les objets d'articles partout où demandé (@Autowired)-->
+	<bean id="dao" class="dao.SQLClientDAO"/>
+	<bean id="service" class="service.ClientServiceImpl"/>
+</beans>
