@@ -32,10 +32,10 @@ public class ArticleService {
 
 	public Article create(final String title, final String description) {
 		final Article result = new Article();
-		result.setId(this.idCount++);
+		//result.setId(this.idCount++);
 		result.setTitle(title);
 		result.setDescription(description);
-		this.articles.add(result);
+		//this.articles.add(result);
 		return result;
 	}
 
