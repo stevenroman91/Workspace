@@ -13,9 +13,10 @@
 	<ul>
 	<c:forEach items="${clients}" var="client">
 		<li>
-			<h3>${client.name} <a href="${showClientUrl}${client.id}">(Détails)</a></h3>
-		</li>		
+			<h3>${client.name} <a href="${showClientUrl}${client.id}">(Détails)</a> <a href="<c:url value="/delete-client.html?clientId=${client.id}" />">X</a> </h3>
+		</li>
 	</c:forEach>
 	</ul>
+	<a href="<c:url value="/new-client.html" />">créer client</a>
 </body>
 </html>

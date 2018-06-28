@@ -34,7 +34,7 @@ public class ViewsServlet extends AutowiredServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		LOGGER.debug("Passage dans doGet avec servletPath={}", request.getServletPath());
-		final String view = request.getServletPath().replace(".html", "").split("/")[1];
+		String view = request.getServletPath().replace(".html", "").split("/")[1];
 		LOGGER.debug("Nom de vue déterminé depuis servletPath -> {}", view);
 		if (view != null && !view.isEmpty()) {
 			String clientId = request.getParameter("clientId");
@@ -46,6 +46,12 @@ public class ViewsServlet extends AutowiredServlet {
 			case "edit-client":
 				request.setAttribute("client", this.service.getValidatedClient(Integer.parseInt(clientId)));
 				break;
+			case "delete-client":	
+				service.deleteClient(Integer.parseInt(clientId)); 
+				request.setAttribute("clients", this.service.getAllClient());
+				view="show-all";
+				break;
+				
 			}
 			this.forwardToJsp(request, response, view);
 		} else {

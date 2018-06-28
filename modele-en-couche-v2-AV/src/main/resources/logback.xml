@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+	<logger level="debug" name="dao" additivity="false">
+		<appender-ref ref="STDOUT"/>
+	</logger>
+	<logger level="debug" name="model" additivity="false">
+		<appender-ref ref="STDOUT"/>
+	</logger>
+	<logger level="debug" name="presentation" additivity="false">
+		<appender-ref ref="STDOUT"/>
+	</logger>
+	<logger level="debug" name="service" additivity="false">
+		<appender-ref ref="STDOUT"/>
+	</logger>
+	<logger level="debug" name="org.springframework.web" additivity="false">
+		<appender-ref ref="STDOUT"/>
+	</logger>
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

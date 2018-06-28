@@ -15,6 +15,11 @@ public class Client {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Client(String name) {
+		super();
+		this.name = name;
+	}
 
 	/**
 	 * @param id
