@@ -1,19 +1,4 @@
 INDEX VERSION 1.130+S:\Formation\StevenRoman\workspace\Workspace\.metadata\.plugins\org.eclipse.jdt.core
-2635628303.index
-2376235338.index
-2125515947.index
-408767333.index
 1096222217.index
-4105418742.index
-2758304351.index
-760815978.index
-1722662516.index
-3555031792.index
-3310242706.index
-3391765212.index
-2183695673.index
-2492489825.index
-1727679059.index
-2017258139.index
-3832106587.index
-4063154067.index
+2034014489.index
+377640278.index
