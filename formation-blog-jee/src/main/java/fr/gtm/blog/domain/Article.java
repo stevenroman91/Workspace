@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Classe d'entité POJO représentant une donnée d'article de blog.
  */
-public class Article implements Serializable {
+public class Article implements Entity, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -15,12 +15,27 @@ public class Article implements Serializable {
 
 	private String description;
 
+	private Author author;
+
+	/**
+	 * @return the author
+	 */
+	public Author getAuthor() {
+		return author;
+	}
+
+	/**
+	 * @param author the author to set
+	 */
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+
 	/**
 	 * Constructeur par défaut
 	 */
 	public Article() {
 	}
-
 	/**
 	 * Constructeur avec arguments pour faciliter la création.
 	 * 

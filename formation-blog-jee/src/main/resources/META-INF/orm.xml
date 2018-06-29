@@ -17,6 +17,34 @@
 			</id>
 			<basic name="title"/>
 			<basic name="description"/>
+			<many-to-one name="author">
+				<join-column name="author_id" referenced-column-name="id"/>
+			</many-to-one>
+		</attributes>
+	</entity>
+	<entity class="fr.gtm.blog.domain.Author">
+		<attributes>
+			<id name="id">
+				<generated-value strategy="IDENTITY"/>
+			</id>
+			<basic name="name"/>
+			<basic name="sudDate"/>
+			<one-to-many name="articles" mapped-by="author">
+				<!-- <join-column name="author_id"/> -->
+			</one-to-many>
+			<one-to-one name="address">
+				<join-column name="address_id" referenced-column-name="id" />
+			</one-to-one>
+		</attributes>
+	</entity>
+	<entity class="fr.gtm.blog.domain.Address">
+		<attributes>
+			<id name="id">
+				<generated-value strategy="IDENTITY"/>
+			</id>
+			<basic name="city"/>
+			<basic name="postalCode"/>
+			<basic name="line"/>
 		</attributes>
 	</entity>
 
