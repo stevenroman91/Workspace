@@ -21,6 +21,7 @@ au contenu HTML généré en sortie. --%>
 	</h2>
 	<div class="main">
 		<c:url value="/delete.html?id=" var="deleteUrl" />
+		<c:url value="/update.html?id=" var="updateUrl" />
 		<%-- Utilisation du tag forEach pour parcourir une collection (== Iterable)
 		Java. Cela permet de dupliquer les éléments HTML à l'intérieur du tag. --%>
 		<c:forEach var="article" items="${listArticle}">
@@ -28,10 +29,11 @@ au contenu HTML généré en sortie. --%>
 				<%-- Accès à la propriété d'un POJO -> on écrit "article.title" mais
 				en réalité l'expression qui sera évaluée est 'article.getTitle(). --%>
 				<h2>
-					${article.title}&nbsp;
+					<c:out value="${article.title}" escapeXml="true"/>&nbsp;					
 					<a href="${deleteUrl}${article.id}">X</a>
+					<a href="${updateUrl}${article.id}">E</a>
 				</h2>
-				<p>${article.description}</p>
+				<p><c:out value="${article.description}" escapeXml="true"/></p>
 			</div>
 		</c:forEach>
 	</div>
