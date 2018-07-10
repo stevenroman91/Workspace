@@ -14,7 +14,6 @@
 <fullyQualifiedTypeName name="fr.gtm.blog.dao.ArticleRepository"/>
 <fullyQualifiedTypeName name="dao.ClientRepository"/>
 <fullyQualifiedTypeName name="model.Client"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Optional"/>
 <fullyQualifiedTypeName name="java.time.LocalDate"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
@@ -33,7 +32,6 @@
 <fullyQualifiedTypeName name="fr.gtm.blog.business.ArticleService"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
@@ -41,4 +39,23 @@
 <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
 <fullyQualifiedTypeName name="fr.gtm.blog.domain.Article"/>
+<fullyQualifiedTypeName name="fr.AfficherNombres"/>
+<fullyQualifiedTypeName name="junit.framework.TestCase"/>
+<fullyQualifiedTypeName name="org.hamcrest.CoreMatchers"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="org.hamcrest.core.AllOf"/>
+<fullyQualifiedTypeName name="org.junit.Before"/>
+<fullyQualifiedTypeName name="fr.gtm.tp.AfficherNombres"/>
+<fullyQualifiedTypeName name="fr.gtm.tp.Paires"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="org.junit.FixMethodOrder"/>
+<fullyQualifiedTypeName name="org.junit.runners.MethodSorters"/>
+<fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
+<fullyQualifiedTypeName name="org.junit.runners.Suite"/>
+<fullyQualifiedTypeName name="org.junit.runners.Suite.SuiteClasses"/>
 </qualifiedTypeNameHistroy>

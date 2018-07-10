@@ -6,9 +6,11 @@ import static org.hamcrest.CoreMatchers.startsWith;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AfficherNombresTest{
 	
 	private AfficherNombres an;
@@ -19,12 +21,12 @@ public class AfficherNombresTest{
 	}
 	
 	@Test
-	public void testStringWithNumber() {
+	public void test1StringWithNumber() {
 		assertThat(an.generateString(), startsWith("1 2 "));
 	}
 	
 	@Test
-	public void testStringWithBuzzFeez() {
+	public void test2StringWithBuzzFeez() {
 		assertThat(this.an.generateString(), allOf(containsString(" buzz "), containsString(" feez "), containsString(" buzzfeez ")));	
 	}
 }
